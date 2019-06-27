@@ -8,15 +8,15 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TranslatorImplTest {
-    Translator translator;
-    Language from;
-    Language to;
+    TranslatorImpl translator;
+    String from;
+    String to;
 
     @BeforeMethod
     public void setUp() throws Exception {
         translator = new TranslatorImpl();
-        from = new Language("EN", "English");
-        to = new Language("ES", "Spanish");
+        from = "English";
+        to = "Spanish";
     }
 
     @Test(invocationCount = 100, threadPoolSize = 5)

@@ -20,13 +20,11 @@ public class TranslatorController {
             @PathVariable("text") String text
     ) {
         try {
-            Translator translator = new TranslatorImpl();
-            Language languageFrom = new Language(from, from);
-            Language languageTo = new Language(to, to);
-            String response = translator.translate(languageFrom, languageTo, text);
-            return new ResponseEntity(response, HttpStatus.OK);
+            TranslatorImpl translator = new TranslatorImpl();
+            String response = translator.translate(from, to, text);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         }catch(Exception e){
-            return new ResponseEntity("", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
